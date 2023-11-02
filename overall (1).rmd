@@ -1,0 +1,57 @@
+---
+title: "overall cronbach"
+author: "jv's angels"
+date: '2022-11-10'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r}
+#data environment
+setwd("~/CJ FOLDER/SURVEY-OPS/cronbach")
+ovl <- read.csv("overall.csv")
+View(ovl)
+head(ovl)
+attach(ovl)
+```
+#OVERALL CRONBACH SCORE
+```{r}
+library(psych)
+library(readxl)
+cronbach_ovl <- psych::alpha(ovl[c('e1','e2','e3','e4','e5','b6','b7','b8','b9','b10','b11','b12','e13','e14','e15','l16','l17','l18','l19','l20')], check.keys = TRUE) 
+cronbach_ovl
+```
+
+
+#ENVIRONMENT
+```{r}
+cronbach_ENV <- psych::alpha(ovl[c('e1','e2','e3','e4','e5')], check.keys = TRUE) 
+cronbach_ENV
+```
+
+
+#BEHAVIOR
+```{r}
+cronbach_BEH <- psych::alpha(ovl[c('b6','b7','b8','b9','b10','b11','b12')], check.keys = TRUE) 
+cronbach_BEH
+```
+
+#ECONOMIC
+```{r}
+cronbach_ECON <- psych::alpha(ovl[c('e13','e14','e15')], check.keys = TRUE) 
+cronbach_ECON
+```
+
+#LEARNING OUTCOME
+```{r}
+cronbach_LO <- psych::alpha(ovl[c('l16','l17','l18','l19','l20')], check.keys = TRUE) 
+cronbach_LO
+```
+
+
+
+
+
+
+
